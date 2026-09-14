@@ -14,6 +14,7 @@ const projects = [
     link: "/fuse",
     badge: "Próximamente en iOS"
   },
+  /*
   {
     id: "ia4sales",
     title: "ia4sales",
@@ -22,6 +23,7 @@ const projects = [
     image: "/ia4sales_real_2.png",
     link: "#"
   },
+  */
   {
     id: "rocket-crash",
     title: "Rocket Crash",
@@ -61,11 +63,7 @@ export default function Projects() {
                   src={project.image}
                   alt={project.title}
                   fill
-                  style={{ 
-                    objectFit: project.id === 'ia4sales' || project.id === 'fuse' ? 'contain' : 'cover',
-                    objectPosition: 'center',
-                    padding: project.id === 'ia4sales' || project.id === 'fuse' ? '2rem' : '0'
-                  }}
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
                 />
               </div>
               <div className={styles.projectInfo}>
