@@ -33,9 +33,15 @@
 }
 
 .links {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+  display: none; /* hidden on mobile */
+}
+
+@media (min-width: 768px) {
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
 }
 
 .links a {
@@ -47,4 +53,61 @@
 
 .links a:hover {
   color: var(--foreground);
+}
+
+.mobileMenuBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--foreground);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .mobileMenuBtn {
+    display: none;
+  }
+}
+
+.mobileOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2rem;
+}
+
+.mobileHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.mobileLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.mobileLinks a {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.mobileLinks .btn-primary {
+  margin-top: 1rem;
 }

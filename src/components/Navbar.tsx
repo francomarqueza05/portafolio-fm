@@ -1,11 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
+import { Menu, X } from "lucide-react";
+import Link from "next/link";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,24 +19,65 @@ export default function Navbar() {
   }, []);
 
   return (
-    <motion.nav
-      className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-    >
-      <div className={styles.navContainer}>
-        <a href="#" className={styles.logo}>
-          FM Studios
-        </a>
-        <div className={styles.links}>
-          <a href="#projects">Proyectos</a>
-          <a href="#about">Perfil</a>
-          <a href="#contact" className="btn-primary" style={{ padding: "0.5rem 1rem", fontSize: "0.9rem" }}>
-            Contacto
-          </a>
+    <>
+      <motion.nav
+        className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <div className={styles.navContainer}>
+          <Link href="/" className={styles.logo}>
+            FM Studios
+          </Link>
+          
+          <div className={styles.links}>
+            <Link href="/#projects">Proyectos</Link>
+            <Link href="/#about">Perfil</Link>
+            <Link href="/#contact" className="btn-primary" style={{ padding: "0.5rem 1rem", fontSize: "0.9rem" }}>
+              Contacto
+            </Link>
+          </div>
+
+          <button 
+            className={styles.mobileMenuBtn} 
+            onClick={() => setMenuOpen(true)}
+            aria-label="Abrir menú"
+          >
+            <Menu size={24} />
+          </button>
         </div>
-      </div>
-    </motion.nav>
+      </motion.nav>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div 
+            className={styles.mobileOverlay}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className={styles.mobileHeader}>
+              <span className={styles.logo}>FM Studios</span>
+              <button 
+                className={styles.mobileMenuBtn} 
+                onClick={() => setMenuOpen(false)}
+                aria-label="Cerrar menú"
+              >
+                <X size={24} />
+              </button>
+            </div>
+            <div className={styles.mobileLinks}>
+              <Link href="/#projects" onClick={() => setMenuOpen(false)}>Proyectos</Link>
+              <Link href="/#about" onClick={() => setMenuOpen(false)}>Perfil</Link>
+              <Link href="/#contact" onClick={() => setMenuOpen(false)} className="btn-primary">
+                Contacto
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
