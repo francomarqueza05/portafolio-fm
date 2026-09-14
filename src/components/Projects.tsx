@@ -9,28 +9,18 @@ const projects = [
     id: "fuse",
     title: "Fuse",
     category: "Mobile Game / Unity",
-    description: "¿Alguna vez te has preguntado cómo se vería Tetris+Candy Crush+Sokoban?\nPues Fuse es la respuesta!",
+    description: "Desafía tu mente con una experiencia minimalista de puzles donde cada movimiento cuenta. Combina estrategia, planificación espacial y geometría en un mundo de neón vibrante.",
     image: "/fuse-logo.png",
     link: "/fuse",
     badge: "Próximamente en iOS"
   },
-  /*
   {
     id: "ia4sales",
     title: "ia4sales",
     category: "SaaS Platform",
     description: "Plataforma Fullstack para el canal de ventas ZaaZ. Centraliza leads y los atiende mediante chatbots IA que validan cobertura y cierran ventas automáticamente, con derivación a atención humana.",
-    image: "/ia4sales_real_2.png",
-    link: "#"
-  },
-  */
-  {
-    id: "rocket-crash",
-    title: "Rocket Crash",
-    category: "First Game / Unreal Engine",
-    description: "Mi primer juego creado a los 16 años.",
-    image: "/rocket_crash.jpg",
-    link: "https://youtu.be/fXeZrMqKcgc"
+    link: "#contact",
+    buttonText: "Solicita una Demo"
   }
 ];
 
@@ -58,22 +48,24 @@ export default function Projects() {
               viewport={{ once: false, margin: "-100px" }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
-              <div className={styles.imageContainer}>
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  style={{ objectFit: 'cover', objectPosition: 'center' }}
-                />
-              </div>
-              <div className={styles.projectInfo}>
+              {project.image && (
+                <div className={styles.imageContainer}>
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    style={{ objectFit: 'cover', objectPosition: 'center' }}
+                  />
+                </div>
+              )}
+              <div className={`${styles.projectInfo} ${!project.image ? styles.fullWidth : ''}`}>
                 <span className={styles.category}>{project.category}</span>
                 <h3 className={styles.title}>{project.title}</h3>
                 <p className={styles.description}>{project.description}</p>
 
                 <div className={styles.footer}>
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn-secondary">
-                    Ver Proyecto
+                  <a href={project.link} target={project.link.startsWith('#') ? "_self" : "_blank"} rel="noopener noreferrer" className="btn-secondary">
+                    {project.buttonText || "Ver Proyecto"}
                   </a>
                   {project.badge && <span className={styles.badge}>{project.badge}</span>}
                 </div>

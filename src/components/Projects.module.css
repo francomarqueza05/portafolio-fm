@@ -58,6 +58,10 @@
   .projectInfo {
     width: 50%;
   }
+  
+  .projectInfo.fullWidth {
+    width: 100%;
+  }
 }
 
 .category {

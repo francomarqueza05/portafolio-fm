@@ -18,12 +18,12 @@ const skillCategories = [
   {
     title: "Game Development",
     icon: <Gamepad2 size={32} />,
-    skills: ["Unity", "Unreal Engine", "C#", "C++", "3D Modeling"]
+    skills: ["Unity", "Unreal Engine", "C#", "C++", "Blender"]
   },
   {
     title: "Data Architecture",
     icon: <Database size={32} />,
-    skills: ["Bases de Datos Relacionales", "NoSQL", "Data Pipelines", "Optimización"]
+    skills: ["Bases de Datos Relacionales", "NoSQL", "Neo4j", "Data Pipelines", "Optimización"]
   }
 ];
 

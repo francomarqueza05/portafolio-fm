@@ -71,7 +71,7 @@ export default function FusePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            Desarrollado a los 19 años en Unity. Un rompecabezas de lógica espacial y estética neón.
+            Un rompecabezas de lógica espacial y estética neón.
           </motion.p>
 
           <motion.div
