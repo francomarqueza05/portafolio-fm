@@ -18,7 +18,7 @@ const projects = [
     id: "ia4sales",
     title: "ia4sales",
     category: "SaaS Platform",
-    description: "Plataforma Fullstack para el canal de ventas ZaaZ. Centraliza leads y los atiende mediante chatbots IA que validan cobertura y cierran ventas automáticamente, con derivación a atención humana.",
+    description: "Plataforma Fullstack para mejorar productividad comercial. Centraliza leads y los atiende mediante chatbots IA que validan cobertura y cierran ventas automáticamente, con derivación a atención humana en caso de ser necesario. \n\nMás ventas, menos gente.",
     link: "#contact",
     buttonText: "Solicita una Demo"
   }
