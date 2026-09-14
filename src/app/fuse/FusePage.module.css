@@ -184,7 +184,7 @@
 .galleryItem {
   flex: 0 0 auto;
   width: 280px;
-  aspect-ratio: 9/16;
+  aspect-ratio: 9/19.5;
   position: relative;
   border-radius: 24px;
   overflow: hidden;

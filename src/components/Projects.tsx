@@ -61,7 +61,11 @@ export default function Projects() {
                   src={project.image}
                   alt={project.title}
                   fill
-                  style={{ objectFit: 'cover' }}
+                  style={{ 
+                    objectFit: project.id === 'ia4sales' || project.id === 'fuse' ? 'contain' : 'cover',
+                    objectPosition: 'center',
+                    padding: project.id === 'ia4sales' || project.id === 'fuse' ? '2rem' : '0'
+                  }}
                 />
               </div>
               <div className={styles.projectInfo}>
