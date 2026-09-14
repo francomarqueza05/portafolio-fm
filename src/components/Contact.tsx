@@ -48,7 +48,7 @@ export default function Contact() {
               <span>francomarqueza2005@gmail.com</span>
             </a>
             
-            <a href="https://www.linkedin.com/in/franco-marquez-acosta" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
+            <a href="https://www.linkedin.com/in/franco-marquez-acosta-ab4274289/" target="_blank" rel="noopener noreferrer" className={styles.contactLink}>
               <div className={styles.iconWrapper}><LinkedinIcon size={20} /></div>
               <span>Franco Marquez Acosta</span>
             </a>
