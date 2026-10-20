@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import styles from "./About.module.css";
 
 const stats = [
@@ -15,27 +14,7 @@ export default function About() {
     <section id="about" className={styles.aboutSection}>
       <div className={`container ${styles.aboutContainer}`}>
 
-        <div className={styles.imageColumn}>
-          <motion.div
-            className={styles.photoWrapper}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <Image
-              src="/foto.jpeg"
-              alt="Franco Marquez Acosta"
-              fill
-              className={styles.photoImage}
-              sizes="(max-width: 768px) 90vw, 380px"
-            />
-            <div className={styles.photoCaption}>
-              <strong>Franco Marquez Acosta</strong>
-              <span>Fundador de FM Studios</span>
-            </div>
-          </motion.div>
-        </div>
+        {/* Foto retirada temporalmente; /foto.jpeg sigue en public/ */}
 
         {/* Text Details */}
         <motion.div

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { href: "/#projects", label: "Proyectos" },
@@ -35,8 +36,8 @@ export default function Navbar() {
       >
         <div className={styles.navContainer}>
           <Link href="/" className={styles.logo} aria-label="FM Studios, inicio">
-            <span className={styles.logoMark}>FM</span>
-            <span className={styles.logoText}>Studios</span>
+            <Image src="/brand/fm-mark.svg" alt="" width={38} height={38} className={styles.logoMark} />
+            <Image src="/brand/fm-wordmark.svg" alt="" width={139} height={18} className={styles.logoWord} />
           </Link>
 
           <div className={styles.links}>
@@ -68,9 +69,9 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
           >
             <div className={styles.mobileHeader}>
-              <span className={styles.logo}>
-                <span className={styles.logoMark}>FM</span>
-                <span className={styles.logoText}>Studios</span>
+              <span className={styles.logo} aria-label="FM Studios">
+                <Image src="/brand/fm-mark.svg" alt="" width={38} height={38} className={styles.logoMark} />
+                <Image src="/brand/fm-wordmark.svg" alt="" width={139} height={18} className={styles.logoWord} />
               </span>
               <button
                 className={styles.mobileMenuBtn}
