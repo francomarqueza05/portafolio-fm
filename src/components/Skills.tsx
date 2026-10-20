@@ -6,24 +6,28 @@ import { Database, Code2, Gamepad2, BrainCircuit } from "lucide-react";
 
 const skillCategories = [
   {
-    title: "Data Science",
-    icon: <BrainCircuit size={32} />,
-    skills: ["Python", "R", "SQL", "Machine Learning", "Análisis Estadístico"]
+    title: "Ciencia de datos e IA",
+    icon: <BrainCircuit size={22} />,
+    usedIn: "IA4Sales · solver de FUSE",
+    skills: ["Python", "R", "SQL", "Machine Learning", "Análisis estadístico", "Agentes conversacionales con LLMs"]
   },
   {
-    title: "Fullstack Development",
-    icon: <Code2 size={32} />,
-    skills: ["React", "Next.js", "Node.js", "TypeScript", "SaaS Architecture"]
+    title: "Desarrollo fullstack",
+    icon: <Code2 size={22} />,
+    usedIn: "IA4Sales · este portafolio",
+    skills: ["TypeScript", "React", "Next.js", "Node.js", "Arquitectura SaaS", "Integraciones con CRMs"]
   },
   {
-    title: "Game Development",
-    icon: <Gamepad2 size={32} />,
-    skills: ["Unity", "Unreal Engine", "C#", "C++", "Blender"]
+    title: "Desarrollo de videojuegos",
+    icon: <Gamepad2 size={22} />,
+    usedIn: "FUSE",
+    skills: ["Unity", "C#", "Unreal Engine", "C++", "Blender", "Remotion (video por código)"]
   },
   {
-    title: "Data Architecture",
-    icon: <Database size={32} />,
-    skills: ["Bases de Datos Relacionales", "NoSQL", "Neo4j", "Data Pipelines", "Optimización"]
+    title: "Arquitectura de datos",
+    icon: <Database size={22} />,
+    usedIn: "Backends y analítica",
+    skills: ["Bases de datos relacionales", "NoSQL", "Neo4j", "Data pipelines", "Optimización"]
   }
 ];
 
@@ -31,33 +35,40 @@ export default function Skills() {
   return (
     <section id="skills" className={styles.skillsSection}>
       <div className="container">
-        <motion.div 
+        <motion.div
           className={styles.header}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="section-title">Perfil Multiperfil</h2>
-          <p className="hero-subtitle">
-            Especialización en Ciencia de Datos, potenciada por años de experiencia en desarrollo Fullstack y creación de Videojuegos. Un enfoque integral para resolver problemas complejos.
+          <span className="eyebrow">Stack</span>
+          <h2 className="section-title">Un perfil, cuatro disciplinas.</h2>
+          <p className={styles.lead}>
+            Especialización en ciencia de datos, potenciada por desarrollo fullstack y creación de
+            videojuegos. Herramientas que uso en productos que están en producción.
           </p>
         </motion.div>
 
         <div className={styles.grid}>
           {skillCategories.map((cat, index) => (
-            <motion.div 
+            <motion.div
               key={cat.title}
-              className={`${styles.skillCard} glass-panel`}
+              className={styles.skillCard}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
             >
-              <div className={styles.iconContainer}>
-                {cat.icon}
+              <div className={styles.cardHeader}>
+                <div className={styles.iconContainer}>
+                  {cat.icon}
+                </div>
+                <div>
+                  <h3 className={styles.cardTitle}>{cat.title}</h3>
+                  <span className={styles.usedIn}>{cat.usedIn}</span>
+                </div>
               </div>
-              <h3 className={styles.cardTitle}>{cat.title}</h3>
               <ul className={styles.skillList}>
                 {cat.skills.map(skill => (
                   <li key={skill}>{skill}</li>

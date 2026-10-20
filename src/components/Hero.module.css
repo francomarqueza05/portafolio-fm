@@ -1,11 +1,13 @@
 .heroSection {
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding: 7rem 0 4rem;
 }
 
 .canvasContainer {
@@ -18,6 +20,17 @@
   pointer-events: none; /* Let clicks pass through if needed, though 3D can be interactive */
 }
 
+/* Oscurece el centro para que el texto se lea sobre los cubos */
+.vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 45% at 50% 50%, rgba(5, 5, 7, 0.82) 0%, rgba(5, 5, 7, 0.4) 60%, transparent 100%),
+    linear-gradient(to bottom, transparent 70%, var(--background) 100%);
+}
+
 .content {
   position: relative;
   z-index: 10;
@@ -25,33 +38,63 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 0 2rem;
-  max-width: 800px;
+  padding: 0 1rem;
+  max-width: 860px;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 4px rgba(48, 209, 88, 0.18);
+  flex-shrink: 0;
+}
+
+.titleAccent {
+  background: linear-gradient(90deg, #7cc0ff 0%, var(--accent) 35%, var(--violet) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .actions {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-.avatarContainer {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-bottom: 1.5rem;
-  position: relative;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 10px 30px rgba(0, 0, 0, 0.5);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+.highlights {
+  list-style: none;
+  padding: 0;
+  margin: 3.5rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 2rem;
+  font-size: 0.9rem;
+  color: var(--text-faint);
 }
 
-.avatarContainer:hover {
-  transform: scale(1.05) translateY(-5px);
-  box-shadow: 0 0 0 2px rgba(41, 151, 255, 0.5), 0 15px 40px rgba(41, 151, 255, 0.2);
-}
-
-.avatarImage {
-  object-fit: cover;
+.highlights strong {
+  color: var(--foreground);
+  font-weight: 600;
+  margin-right: 0.4rem;
 }

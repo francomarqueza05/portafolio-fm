@@ -1,13 +1,21 @@
 :root {
-  --background: #000000;
-  --foreground: #f5f5f7;
+  --background: #050507;
+  --surface: #0c0d12;
+  --surface-2: #13151c;
+  --foreground: #f4f4f6;
+  --text-muted: #9b9daa;
+  --text-faint: #6b6d7a;
   --accent: #2997ff;
   --accent-hover: #147ce5;
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --card-bg: #1d1d1f;
-  --text-muted: #a1a1a6;
+  --violet: #a46bff;
+  --green: #30d158;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --card-bg: #111218;
   --max-width: 1200px;
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html,
@@ -33,6 +41,10 @@ a {
   text-decoration: none;
 }
 
+::selection {
+  background: rgba(41, 151, 255, 0.35);
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
@@ -41,37 +53,60 @@ a {
   background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: #2a2b31;
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #44454d;
 }
 
 /* Typography Utility Classes */
 .hero-title {
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(2.8rem, 8vw, 6.2rem);
   font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
   text-align: center;
-  margin-bottom: 1rem;
+  margin: 0 0 1.5rem;
 }
 
 .hero-subtitle {
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-size: clamp(1.1rem, 2.4vw, 1.4rem);
   font-weight: 400;
+  line-height: 1.55;
   color: var(--text-muted);
   text-align: center;
-  max-width: 700px;
+  max-width: 680px;
   margin: 0 auto;
 }
 
 .section-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 2rem;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  margin: 0 0 1.25rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
 }
 
 .text-gradient {
@@ -83,7 +118,7 @@ a {
 
 /* Premium Layout Utilities */
 section {
-  scroll-margin-top: 100px;
+  scroll-margin-top: 90px;
 }
 
 .container {
@@ -93,21 +128,27 @@ section {
   padding: 0 2rem;
 }
 
+@media (max-width: 600px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
 .glass-panel {
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
 }
 
 .btn-primary {
   background-color: var(--foreground);
   color: var(--background);
-  padding: 0.8rem 1.5rem;
-  border-radius: 30px;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.98rem;
   transition: transform 0.2s ease, opacity 0.2s ease;
   display: inline-flex;
   align-items: center;
@@ -115,6 +156,7 @@ section {
   gap: 0.5rem;
   border: none;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .btn-primary:hover {
@@ -123,23 +165,25 @@ section {
 }
 
 .btn-secondary {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.02);
   color: var(--foreground);
-  padding: 0.8rem 1.5rem;
-  border-radius: 30px;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
   font-weight: 600;
-  font-size: 1rem;
-  transition: background-color 0.2s ease;
+  font-size: 0.98rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   border: 1px solid var(--glass-border);
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .btn-secondary:hover {
   background-color: var(--glass-bg);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Grid Layouts */
@@ -153,4 +197,10 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import { useRef, useMemo, Suspense } from "react";
-import Image from "next/image";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, Environment, useFBX, Center } from "@react-three/drei";
+import { ArrowDown } from "lucide-react";
 import styles from "./Hero.module.css";
 import * as THREE from "three";
 
@@ -198,34 +198,60 @@ export default function Hero() {
         </Canvas>
       </div>
       
+      <div className={styles.vignette} />
+
       <div className={styles.content}>
-        <motion.h1 
-          className="hero-title"
-          initial={{ opacity: 0, y: 30 }}
+        <motion.div
+          className={styles.statusPill}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
-          FM Studios
+          <span className={styles.statusDot} />
+          FM Studios · FUSE ya disponible en iOS y Android
+        </motion.div>
+
+        <motion.h1
+          className="hero-title"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+        >
+          Franco Marquez<br />
+          <span className={styles.titleAccent}>Acosta</span>
         </motion.h1>
-        
-        <motion.p 
-          className="hero-subtitle text-gradient"
+
+        <motion.p
+          className="hero-subtitle"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          Científico de Datos & Desarrollador Fullstack. <br />
-          Transformando ideas en experiencias digitales premium.
+          Ciencia de datos, desarrollo fullstack y videojuegos.
+          Diseño, construyo y lanzo productos completos: de la idea al usuario final.
         </motion.p>
-        
+
         <motion.div
           className={styles.actions}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
         >
-          <a href="#projects" className="btn-primary">Ver Proyectos</a>
+          <a href="#projects" className="btn-primary">
+            Ver proyectos <ArrowDown size={16} />
+          </a>
+          <a href="#contact" className="btn-secondary">Hablemos</a>
         </motion.div>
+
+        <motion.ul
+          className={styles.highlights}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.6 }}
+        >
+          <li><strong>FUSE</strong> Juego móvil · Unity</li>
+          <li><strong>IA4Sales</strong> SaaS · IA por WhatsApp</li>
+        </motion.ul>
       </div>
     </section>
   );

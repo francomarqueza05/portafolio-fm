@@ -30,13 +30,15 @@ export default function Contact() {
           className={`${styles.contactCard} glass-panel`}
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
         >
           <div className={styles.textContent}>
-            <h2 className="section-title">Hablemos</h2>
-            <p className="hero-subtitle" style={{ margin: "0", textAlign: "left" }}>
-              ¿Tienes un proyecto en mente o buscas talento especializado? Conectemos.
+            <span className="eyebrow">Contacto</span>
+            <h2 className="section-title">Hablemos.</h2>
+            <p className={styles.lead}>
+              ¿Tienes un proyecto en mente, buscas un perfil que una datos, desarrollo y producto, o
+              quieres ver IA4Sales funcionando en tu empresa? Escríbeme.
             </p>
           </div>
 

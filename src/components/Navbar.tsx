@@ -6,6 +6,12 @@ import styles from "./Navbar.module.css";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 
+const navLinks = [
+  { href: "/#projects", label: "Proyectos" },
+  { href: "/#about", label: "Sobre mí" },
+  { href: "/#skills", label: "Stack" },
+];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,7 +20,8 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -27,20 +34,22 @@ export default function Navbar() {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className={styles.navContainer}>
-          <Link href="/" className={styles.logo}>
-            FM Studios
+          <Link href="/" className={styles.logo} aria-label="FM Studios, inicio">
+            <span className={styles.logoMark}>FM</span>
+            <span className={styles.logoText}>Studios</span>
           </Link>
-          
+
           <div className={styles.links}>
-            <Link href="/#projects">Proyectos</Link>
-            <Link href="/#about">Perfil</Link>
-            <Link href="/#contact" className="btn-primary" style={{ padding: "0.5rem 1rem", fontSize: "0.9rem" }}>
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href}>{link.label}</Link>
+            ))}
+            <Link href="/#contact" className="btn-primary" style={{ padding: "0.5rem 1.1rem", fontSize: "0.9rem" }}>
               Contacto
             </Link>
           </div>
 
-          <button 
-            className={styles.mobileMenuBtn} 
+          <button
+            className={styles.mobileMenuBtn}
             onClick={() => setMenuOpen(true)}
             aria-label="Abrir menú"
           >
@@ -51,7 +60,7 @@ export default function Navbar() {
 
       <AnimatePresence>
         {menuOpen && (
-          <motion.div 
+          <motion.div
             className={styles.mobileOverlay}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -59,9 +68,12 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
           >
             <div className={styles.mobileHeader}>
-              <span className={styles.logo}>FM Studios</span>
-              <button 
-                className={styles.mobileMenuBtn} 
+              <span className={styles.logo}>
+                <span className={styles.logoMark}>FM</span>
+                <span className={styles.logoText}>Studios</span>
+              </span>
+              <button
+                className={styles.mobileMenuBtn}
                 onClick={() => setMenuOpen(false)}
                 aria-label="Cerrar menú"
               >
@@ -69,8 +81,9 @@ export default function Navbar() {
               </button>
             </div>
             <div className={styles.mobileLinks}>
-              <Link href="/#projects" onClick={() => setMenuOpen(false)}>Proyectos</Link>
-              <Link href="/#about" onClick={() => setMenuOpen(false)}>Perfil</Link>
+              {navLinks.map((link) => (
+                <Link key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</Link>
+              ))}
               <Link href="/#contact" onClick={() => setMenuOpen(false)} className="btn-primary">
                 Contacto
               </Link>
