@@ -36,8 +36,8 @@ export default function Navbar() {
       >
         <div className={styles.navContainer}>
           <Link href="/" className={styles.logo} aria-label="FM Studios, inicio">
-            <Image src="/brand/fm-mark.svg" alt="" width={38} height={38} className={styles.logoMark} />
-            <Image src="/brand/fm-wordmark.svg" alt="" width={139} height={18} className={styles.logoWord} />
+            <Image src="/brand/fm-mark.svg" alt="" width={30} height={30} className={styles.logoMark} />
+            <span>FM Studios</span>
           </Link>
 
           <div className={styles.links}>
@@ -69,9 +69,9 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
           >
             <div className={styles.mobileHeader}>
-              <span className={styles.logo} aria-label="FM Studios">
-                <Image src="/brand/fm-mark.svg" alt="" width={38} height={38} className={styles.logoMark} />
-                <Image src="/brand/fm-wordmark.svg" alt="" width={139} height={18} className={styles.logoWord} />
+              <span className={styles.logo}>
+                <Image src="/brand/fm-mark.svg" alt="" width={30} height={30} className={styles.logoMark} />
+                <span>FM Studios</span>
               </span>
               <button
                 className={styles.mobileMenuBtn}

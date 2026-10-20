@@ -37,16 +37,8 @@
 
 .logoMark {
   display: block;
-  width: 38px;
-  height: 38px;
-  border-radius: 9px;
-  box-shadow: 0 0 18px rgba(255, 79, 216, 0.3);
-}
-
-.logoWord {
-  display: block;
-  width: auto;
-  height: 18px;
+  width: 30px;
+  height: 30px;
 }
 
 .links {

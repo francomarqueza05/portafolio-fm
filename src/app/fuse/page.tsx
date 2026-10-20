@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import LazyVideo from "@/components/LazyVideo";
 import StoreBadges, { FUSE_LINKS } from "@/components/StoreBadges";
 import styles from "./FusePage.module.css";
-import { ArrowLeft, ArrowUpRight, Bomb, Snowflake, ArrowLeftRight, Plus, Cpu, Brain, Clapperboard, Gem } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Bomb, Snowflake, ArrowLeftRight, Plus } from "lucide-react";
 
 const reveal = {
   initial: { opacity: 0, y: 30 },
@@ -31,7 +31,7 @@ const howToPlay = [
 ];
 
 const powerUps = [
-  { icon: <Plus size={20} />, color: "#3ee07a", title: "+5 movimientos", text: "Cinco movimientos extra para cuando te quedas a uno de ganar." },
+  { icon: <Plus size={20} />, color: "#3ee07a", title: "+5 movimientos", text: "Suma movimientos extra a la partida." },
   { icon: <Bomb size={20} />, color: "#ff7a45", title: "Bomba", text: "Vuela la caja que estorba y desata reacciones en cadena con TNT." },
   { icon: <Snowflake size={20} />, color: "#4cc3ff", title: "Congelar", text: "Convierte una casilla en hielo y manda las cajas deslizando." },
   { icon: <ArrowLeftRight size={20} />, color: "#ff4fa3", title: "Intercambio", text: "Teletransporta dos cajas para que cambien de lugar." },
@@ -39,37 +39,12 @@ const powerUps = [
 
 const clips = [
   { src: "AdChain", label: "Reacción en cadena" },
-  { src: "R2-OneMoveShort", label: "A un movimiento" },
   { src: "AdPowerUps", label: "Power-ups" },
-  { src: "R1-Solve4", label: "Resuélvelo en 4" },
   { src: "AdChallenge", label: "Desafío" },
   { src: "AdSplit", label: "¿Cuál gana?" },
 ];
 
 const screenshots = ["01_hero", "02_fuse", "03_bomb", "04_freeze", "05_swap", "06_stars"];
-
-const buildNotes = [
-  {
-    icon: <Cpu size={20} />,
-    title: "Unity y C#",
-    text: "Un solo código para iOS y Android: física de deslizamiento, efectos de neón, háptica, mapa de capítulos y Reto Diario.",
-  },
-  {
-    icon: <Brain size={20} />,
-    title: "Solver de niveles en Python",
-    text: "Resuelve cada nivel, calcula el mínimo de movimientos que define las 3 estrellas y ayuda a ordenar la curva de dificultad.",
-  },
-  {
-    icon: <Clapperboard size={20} />,
-    title: "Marketing generado por código",
-    text: "Tráilers de tienda, reels y anuncios renderizados con Remotion (React) a partir de grabaciones reales del juego.",
-  },
-  {
-    icon: <Gem size={20} />,
-    title: "Monetización",
-    text: "Compras dentro de la app (packs, quitar anuncios, alcancía) y anuncios, configurados en App Store Connect y Google Play.",
-  },
-];
 
 export default function FusePage() {
   return (
@@ -222,7 +197,7 @@ export default function FusePage() {
         <motion.div className={styles.sectionHeader} {...reveal}>
           <span className={styles.kicker}>Clips</span>
           <h2 className={styles.sectionTitle}>Momentos del juego.</h2>
-          <p className={styles.bodyText}>Reels y anuncios verticales generados a partir de partidas reales.</p>
+          <p className={styles.bodyText}>Clips verticales del juego en acción.</p>
         </motion.div>
         <div className={styles.scroller}>
           {clips.map((clip) => (
@@ -260,24 +235,10 @@ export default function FusePage() {
           <span className={styles.kicker}>Detrás del juego</span>
           <h2 className={styles.sectionTitle}>De la idea a las tiendas.</h2>
           <p className={styles.bodyText}>
-            Diseñé, programé y lancé FUSE en FM Studios: gameplay, diseño de niveles, arte de UI,
-            herramientas internas y todo el material de las tiendas.
+            Diseñé y desarrollé FUSE con Unity y C#, y lo publiqué en App Store y Google Play bajo
+            mi sello independiente, FM Studios.
           </p>
         </motion.div>
-        <div className={styles.buildGrid}>
-          {buildNotes.map((note, i) => (
-            <motion.div
-              key={note.title}
-              className={styles.buildCard}
-              {...reveal}
-              transition={{ ...reveal.transition, delay: i * 0.08 }}
-            >
-              <span className={styles.buildIcon}>{note.icon}</span>
-              <h3>{note.title}</h3>
-              <p>{note.text}</p>
-            </motion.div>
-          ))}
-        </div>
       </section>
 
       {/* CTA */}

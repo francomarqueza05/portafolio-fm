@@ -8,20 +8,20 @@ const skillCategories = [
   {
     title: "Ciencia de datos e IA",
     icon: <BrainCircuit size={22} />,
-    usedIn: "IA4Sales · solver de FUSE",
-    skills: ["Python", "R", "SQL", "Machine Learning", "Análisis estadístico", "Agentes conversacionales con LLMs"]
+    usedIn: "IA4Sales",
+    skills: ["Python", "R", "SQL", "Machine Learning", "Análisis estadístico", "IA conversacional"]
   },
   {
     title: "Desarrollo fullstack",
     icon: <Code2 size={22} />,
     usedIn: "IA4Sales · este portafolio",
-    skills: ["TypeScript", "React", "Next.js", "Node.js", "Arquitectura SaaS", "Integraciones con CRMs"]
+    skills: ["TypeScript", "React", "Next.js", "Node.js", "Arquitectura SaaS"]
   },
   {
     title: "Desarrollo de videojuegos",
     icon: <Gamepad2 size={22} />,
     usedIn: "FUSE",
-    skills: ["Unity", "C#", "Unreal Engine", "C++", "Blender", "Remotion (video por código)"]
+    skills: ["Unity", "C#", "Unreal Engine", "C++", "Blender"]
   },
   {
     title: "Arquitectura de datos",
@@ -46,7 +46,7 @@ export default function Skills() {
           <h2 className="section-title">Un perfil, cuatro disciplinas.</h2>
           <p className={styles.lead}>
             Especialización en ciencia de datos, potenciada por desarrollo fullstack y creación de
-            videojuegos. Herramientas que uso en productos que están en producción.
+            videojuegos.
           </p>
         </motion.div>
 

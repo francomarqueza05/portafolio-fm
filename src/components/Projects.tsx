@@ -16,19 +16,10 @@ const reveal = {
 };
 
 const ia4salesFlow = [
-  "Atiende al instante",
-  "Ubica la dirección",
+  "Atiende por WhatsApp",
   "Verifica la cobertura",
-  "Muestra tus planes",
-  "Cierra y pide documentos",
-  "Pasa el caso a tu equipo",
-];
-
-const ia4salesFeatures = [
-  { title: "Bandeja para asesores", text: "Solo llega lo que necesita una persona, con la conversación y los datos del cliente." },
-  { title: "Rendimiento del equipo", text: "Quién está conectado, tiempos de respuesta y cómo termina cada caso." },
-  { title: "Editor visual", text: "Cada paso del bot se edita en un mapa visual, sin programar." },
-  { title: "Conectado a tu CRM", text: "HubSpot, Kommo, Zapier, Make, n8n o una integración propia." },
+  "Muestra los planes",
+  "Pasa el caso al equipo",
 ];
 
 const chat = [
@@ -72,7 +63,7 @@ function FuseCase() {
           </div>
           <div>
             <dt>Stack</dt>
-            <dd>Unity · C# · Python · Remotion</dd>
+            <dd>Unity · C#</dd>
           </div>
           <div>
             <dt>Contenido</dt>
@@ -154,23 +145,16 @@ function Ia4SalesCase() {
       </div>
 
       <div className={styles.caseInfo}>
-        <span className={`${styles.category} ${styles.categoryGreen}`}>SaaS · IA conversacional para ISPs</span>
+        <span className={`${styles.category} ${styles.categoryGreen}`}>IA conversacional · En desarrollo</span>
         <h3 className={styles.title}>
           IA<span className={styles.iaFour}>4</span>Sales
         </h3>
         <p className={styles.tagline}>El bot que vende internet por WhatsApp.</p>
         <p className={styles.description}>
-          Un agente de ventas para proveedores de internet. Responde en segundos, ubica la dirección en
-          un mapa, verifica la cobertura, muestra los planes, cierra la venta y pide los documentos
-          (reconoce DNI, recibo y fachada en la foto). Del primer «hola» a la venta sin intervención
-          humana, y deriva el caso al equipo cuando hace falta.
+          Un asistente de ventas con IA para proveedores de internet, en desarrollo. Atiende al cliente
+          por WhatsApp, verifica la cobertura de su dirección, le muestra los planes y pasa el caso al
+          equipo cuando hace falta.
         </p>
-
-        <div className={styles.stats}>
-          <div><strong>≈2 s</strong><span>por respuesta</span></div>
-          <div><strong>24/7</strong><span>sin turnos</span></div>
-          <div><strong>Voz y texto</strong><span>entiende audios</span></div>
-        </div>
 
         <ol className={styles.flow}>
           {ia4salesFlow.map((step, i) => (
@@ -187,15 +171,6 @@ function Ia4SalesCase() {
           </a>
         </div>
       </div>
-
-      <div className={styles.featureRow}>
-        {ia4salesFeatures.map((f) => (
-          <div key={f.title} className={styles.feature}>
-            <h4>{f.title}</h4>
-            <p>{f.text}</p>
-          </div>
-        ))}
-      </div>
     </motion.article>
   );
 }
@@ -206,10 +181,10 @@ export default function Projects() {
       <div className="container">
         <motion.header className={styles.header} {...reveal}>
           <span className="eyebrow">Trabajo seleccionado</span>
-          <h2 className="section-title">Productos reales, en producción.</h2>
+          <h2 className="section-title">Proyectos destacados.</h2>
           <p className={styles.lead}>
-            Dos proyectos que diseñé y construí de punta a punta: un juego publicado en App Store y
-            Google Play, y una plataforma SaaS que vende por WhatsApp con IA.
+            Un juego publicado en App Store y Google Play, y un asistente de ventas con IA para
+            WhatsApp que estoy desarrollando.
           </p>
         </motion.header>
 
