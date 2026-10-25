@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Franco Marquez Acosta | FM Studios",
   description:
-    "Portafolio de Franco Marquez Acosta (FM Studios), estudiante de Ciencia de Datos en la UPV. Desarrollo fullstack y videojuegos: creador de FUSE, juego de puzzles para iOS y Android, y de IA4Sales, asistente de ventas con IA en desarrollo.",
+    "Franco Marquez Acosta, estudiante de Ciencia de Datos en la UPV. Desarrollo web y videojuegos con FM Studios, creador de FUSE para iOS y Android.",
   authors: [{ name: PERSON.name, url: SITE_URL }],
   creator: PERSON.name,
   alternates: { canonical: "/" },
