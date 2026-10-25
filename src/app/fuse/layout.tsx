@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "FUSE · Puzzle de neón para iOS y Android | FM Studios",
   description:
     "FUSE: desliza cajas, fusiona colores y supera el Reto Diario. Más de 100 niveles y 4 power-ups. Gratis en App Store y Google Play.",
+  alternates: { canonical: "/fuse" },
   openGraph: {
     title: "FUSE · Slide. Fuse. Glow.",
     description: "Puzzle de neón con más de 100 niveles. Gratis en iOS y Android.",
