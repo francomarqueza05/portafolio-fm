@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   creator: PERSON.name,
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
+  verification: { google: "cyeNom1UeKdL4ERVjp5LiHqhdeWs8nMo-udauT0T5Xk" },
   openGraph: {
     title: "Franco Marquez Acosta | FM Studios",
     description: "Ciencia de datos, desarrollo fullstack y videojuegos. Creador de FUSE e IA4Sales.",
